@@ -33,8 +33,8 @@ public class ProductServiceEntity {
     private int rating;
     private boolean refurnished;
 
-    // @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-    // private List<ProductImageEntity> images;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<ProductImageEntity> images;
     // private int user_id;
     // also add for image
 }
