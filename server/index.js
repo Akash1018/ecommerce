@@ -7,6 +7,7 @@ const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 
+
 dotenv.config();
 
 const app = express();
@@ -19,10 +20,11 @@ mongoose
     console.log("success")
 })
 .catch((err) => {
-    console.log(err)
+    console.log(err.message)
 }); // check for error
 
 app.use(express.json())
+
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);

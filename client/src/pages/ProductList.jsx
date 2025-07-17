@@ -43,7 +43,9 @@ const Option = styled.option`
   
 `
 const ProductList = () => {
-
+  const filterColor = (e) => {
+    console.log("color update request" + " " + e.target.value);
+  }
   return (
     <Container>
         <Navbar />
@@ -54,7 +56,7 @@ const ProductList = () => {
               <FilterText>
                 Filter Products:
                 </FilterText>
-                <Select name="color">
+                <Select name="color" onChange={filterColor}>
                   <Option disabled >
                     Color
                   </Option>
