@@ -25,11 +25,11 @@ mongoose
 
 app.use(express.json())
 
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/products", productRoute);
-app.use("/api/carts", cartRoute);
-app.use("/api/orders", orderRoute);
+app.use("/v2/auth", authRoute);
+app.use("/v2/users", userRoute);
+app.use("/v2/products", productRoute);
+app.use("/v2/carts", cartRoute);
+app.use("/v2/orders", orderRoute);
 
 app.listen(process.env.PORT || 6000,() => {
     console.log("Backend server is running!")

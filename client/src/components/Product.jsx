@@ -6,6 +6,9 @@ import {
   import styled from "styled-components";
   import { Link } from "react-router-dom";
   import { mobile } from '../responsive'
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/cartRedux";
+import './icon.css'
 
   const Info = styled.div`
     opacity: 0;
@@ -61,22 +64,33 @@ import {
       background-color: #e9f5f5;
       transform: scale(1.1);
     }
+    ${mobile({
+        width: '24px',
+        height: '24px',
+        margin: '8px'
+    })}
   `;
   const Product = ({ item }) => {
+    const dispatch = useDispatch();
+    const handleClick = () => {
+      dispatch(
+        addProduct({...item, quantity: 1, color: item.color[0], size: item.size[0]})
+      )
+    }
     return (
       <Container>
         <Image src={item.img} />
         <Info>
           <Icon>
-            <ShoppingCartOutlined />
+            <ShoppingCartOutlined onClick={handleClick} className="iconSize"/>
           </Icon>
           <Icon>
             <Link to={`/product/${item._id}`}>
-            <SearchOutlined />
+            <SearchOutlined className="iconSize"/>
             </Link>
           </Icon>
           <Icon>
-            <FavoriteBorderOutlined />
+            <FavoriteBorderOutlined className="iconSize"/>
           </Icon>
         </Info>
       </Container>

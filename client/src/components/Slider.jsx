@@ -1,65 +1,45 @@
-import React from 'react'
 import styled from 'styled-components'
-import { ArrowLeftOutlined } from '@mui/icons-material'
-import { ArrowRightOutlined } from '@mui/icons-material'
-import { useState } from 'react'
 import { sliderItems } from '../data'
 import { mobile } from '../responsive'
 import { tablet } from '../responsive'
 import { Link } from 'react-router-dom'
 
 const Container = styled.div`
-    width: 100%;
-    height: 90vh;
     display: flex;
     position:relative;
     overflow: hidden;
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
-    ${mobile({
-        height:'44vh'
-    })};
-    ${tablet({height:'56vh'})}
 `;
 
 const Wrapper = styled.div`
-    height:100%;
     transform:translateX(${props => props.slideIndex*-100}vw);
 `;
 
 const Slide = styled.div`
-    width:100vw;
-    height:100vh;
     display:flex;
     align-items: center;
-    ${mobile({
-        width:'100vw',
-        height:'90vw'
-     })};
-    ${tablet({height:'110vh',width:"90vw"})};
 `;
 
 const ImgContainer = styled.div`
     height: 90%;
-    flex:1;
     ${mobile({
         height:'80%'
     })};
+    ${tablet({
+        flex:'0'
+    })};
 `;
 const Image = styled.img`
-height: 100%;
+height: 420px;
 ${mobile({
-    height:'100%'
+    height:'240px'
  })};
-${tablet({height:'50%'})};
+${tablet({height:'320px'})};
 `;
 
 const InfoContainer = styled.div`
     flex:1;
-    padding: 100px;
-    ${mobile({
-        padding:'10px'
-     })};
-    ${tablet({padding:'10px',position:'relative',bottom:'10rem'})};
+    padding: 20px;
 `;
 
 const Title = styled.h1`
@@ -70,13 +50,12 @@ const Title = styled.h1`
 `;
 
 const Desc = styled.p`
- margin: 50px 0px;
+ padding:24px 0px;
  font-size: 26px;
  font-weight:500;
  letter-spacing:3px;
  ${mobile({
     fontSize:'12px',
-    margin:'20px 1px'
  })};
  ${tablet({fontSize:'12px'})};
 `;
@@ -100,7 +79,7 @@ const Slider = () => {
             <InfoContainer>
                 <Title>{item.title}</Title>
                 <Desc>{item.desc}</Desc>
-                <Link to={`/products/${item._id}`}>
+                <Link to={`/products/${item.category}`}>
                 <Button>Shop Now</Button>
                 </Link>
             </InfoContainer>

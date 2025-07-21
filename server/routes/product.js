@@ -65,7 +65,7 @@ router.get("/", async (req, res) => {
 
     if (qNew) {
       products = await Product.find().sort({ createdAt: -1 }).limit(1);
-    } else if (qCategory) {
+    } else if (qCategory && qCategory !== 'all_products') {
       products = await Product.find({
         categories: {
           $in: [qCategory],

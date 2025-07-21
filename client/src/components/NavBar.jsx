@@ -8,15 +8,19 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link, Navigate } from "react-router-dom";
 import { useState } from 'react';
-import { notInitialized } from 'react-redux/es/utils/useSyncExternalStore';
+import './icon.css'
 
 const Container = styled.div`
     height:100%;
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     ${mobile({height: '50px'})};
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    z-index: 9999;
 `; 
 const Wrapper = styled.div`
-    padding:10px 20px;  
+    padding:4px 12px;  
     display:flex;
     align-items: center;
     justify-content:space-between;
@@ -27,6 +31,7 @@ const Left = styled.div`
     flex:1;
     display:flex;
     align-items:center;
+    transition: margin-left .5s;
 `;
 
 const Nav = styled.div`
@@ -39,6 +44,7 @@ const Nav = styled.div`
     background-color:black;
     color:white;
     z-index:1;
+    transition: 0.5s;
 `;
 
 
@@ -46,6 +52,7 @@ const Nav = styled.div`
 const Butt1 = styled.button`
     border:none;
     background:none;
+    transition: margin-left .5s;
     color:white;
 `
 
@@ -56,6 +63,7 @@ const Butt2 = styled.button`
     position:fixed;
     top:18px;
     left:15px;
+    transition: 0.3s;
 `
 
 const Input =styled.input`
@@ -153,7 +161,7 @@ const NavBar = () => {
                 <MenuItem>
                 <Badge badgeContent={quantity} color="secondary">
                     <Link to ="/cart">
-                     <ShoppingCartIcon style={{color:'black'}} />
+                     <ShoppingCartIcon style={{color:'black'}} className='iconSize' />
                     </Link>
                 </Badge>
                 </MenuItem>

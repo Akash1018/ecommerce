@@ -1,6 +1,7 @@
 import Banner from './components/images/banner1.png'
 import Banner1 from './components/images/sweater1.jpg'
 import Banner2 from './components/images/shoes.jpg'
+import { Category } from '@mui/icons-material';
 
 export const sliderItems = [
     {
@@ -8,6 +9,7 @@ export const sliderItems = [
         img:Banner,
         title:`Winter SALE`,
         desc:`DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS`,
+        category: `all_products`
     }
 ]
 
@@ -16,19 +18,19 @@ export const categories = [
       id: 1,
       img: Banner1,
       title: "SWEATERS",
-      cat:"women"
+      category:"sweater"
     },
     {
       id: 2,
       img: Banner2,
       title: "SHOES",
-      cat:"coat"
+      category:"shoes"
     },
     {
       id: 3,
       img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       title: "JACKETS",
-      cat:"jeans"
+      category:"jacket"
     },
   ];
 
